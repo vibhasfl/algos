@@ -1,0 +1,89 @@
+# 1. Big(O) means when we grow bigger and bigger with our inputs how much does the algorithm slows down.
+# 2. Element x Operations
+
+# --------------------------------O(n)--------------------------------------
+
+# Example of O(n) time complexity
+search_arr = ["nemo", "cat", "fish", "dog"]
+
+# Here to find nemo the time complexity is O(n) because loop runs n times
+# where n is the length of the array
+
+for i in search_arr:
+  if (i == "nemo"):
+    print("Found Nemo!")
+
+# --------------------------------O(1)--------------------------------------
+
+# Example of O(1) time complexity.
+# Even if we have boxes with 1000 items it will still take the same amount of time to find the first two boxes
+boxes = [0, 1, 2, 3, 4, 5]
+
+
+def logFirstTwoBoxes(boxes):
+  print(boxes[0])  # O(1)
+  print(boxes[1])  # O(1)
+
+
+# --------------------------------O(n^2)--------------------------------------
+
+for i in boxes:
+  for j in boxes:
+    print(i, j)
+# O(n*m) or O(n^2)
+
+# ----------------------------------------------------------------------------
+
+
+# Calculation O for an function
+def funChallenge(input):
+  a = 10  # O(1)
+  a = 50 + 3  # O(1)
+  for i in range(len(input)):  # O(n)
+    anotherFunction()  # O(n)
+    stranger = True  # O(n)
+    a += 1  # O(n)
+
+  return a  # O(1)
+
+
+# 1+1+n+n+n+n+1
+# BIG O(3 + 4n) OR we can say O(n) in simple terms
+
+# ---------------------------Big(O) Rules-------------------------------------
+# Rule 1: Worst Case (We always consider the worst case)
+for i in search_arr:
+  if (i == "nemo"):
+    print("Found Nemo!")
+    break  # If we find nemo we break the loop but this is beneficial if nemo is at the start but in worst case it will be at the end so we consider the worst case
+
+
+# Rule 2: Remove Constants
+def printFirstItemThenFirstHalfThenSayHi100Times(items):
+  print(items[0])  # O(1)
+  middleIndex = len(items) // 2
+  for i in range(middleIndex):  # O(n/2)
+    print(items[i])
+  for i in range(100):  # O(100)
+    print("hi")
+
+
+# O(1 + n/2 + 100) OR we can say O(n/2 + 101) OR we can say O(n + 1) OR we can say O(n)
+
+
+# Rule 3 : Different terms for inputs
+def compressBoxesTwice(boxes, boxes2):
+  for i in boxes:  # O(a)
+    print(i)
+
+  for i in boxes2:  # O(b)
+    print(i)
+
+
+# As per first 2 rule we say that its O(N) but here we have 2 different inputs so we say that its O(a + b)
+
+# Rule 4: Drop Non Dominants
+# If we have O(n^2 + n + 100) then we drop the non dominant terms and say that its O(n^2)
+
+# Currently we are only considering speed(time) but we also consider space(memory) complexity.
+# Space complexity is the amount of memory that an algorithm takes up in order to run
