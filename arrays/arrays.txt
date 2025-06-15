@@ -1,0 +1,6 @@
+Push O(1)
+Pop O(1)
+unShift O(n)
+Splice O(n)
+
+

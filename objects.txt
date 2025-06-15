@@ -1,0 +1,40 @@
+----- Reference -----
+
+1. Number,null, boolean, undefined, strings they are all defined by programming language.
+So this are primitive types.
+
+2. Object, arrays are not defined by programming languages. They are created by programmer.
+
+var object1 = {value:10}
+var object2 = object1
+var object3 = {value:10}
+
+Here o1 and o2 both are referring to same object unlike o3.
+Therefore o1 === o2 is true, but o1 === o3 is false.
+Also if o2 changes, o1 will also change.
+
+arrays also work in similar manner
+
+----- Context -----
+class Player {
+    contructor(name,type){
+        this.name = name
+        this.type = type
+    }
+    introduce(){
+        console.log(`My name is ${this.name} and I am a ${this.type}`)
+    }
+}
+class Wizard extends Player {
+    constructor(name,type){
+        super(name,type)
+    }
+    play(){
+        console.log(`Weeeee , I'm a ${this.type}`)
+    }
+}
+
+
+
+
+
