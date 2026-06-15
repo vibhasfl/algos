@@ -1,3 +1,7 @@
 {
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "github.copilot.enable": {
+        "*": false
+    }
+    
 }
