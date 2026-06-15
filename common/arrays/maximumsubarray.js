@@ -26,3 +26,26 @@
 // Explanation: The subarrays of nums with length 3 are:
 // - [4,4,4] which does not meet the requirements because the element 4 is repeated.
 // We return 0 because no subarrays meet the conditions.
+
+function getMaximumsubarray(intArr,count){
+
+    let maxSum=0
+    for(i=0;i<intArr.length-2;i++){
+        let a = intArr[i]
+        let b = intArr[i+1]
+        let c = intArr[i+2]
+
+        if(a!=b && b!=c){
+            sum = a+b+c 
+            maxSum= Math.max(sum,maxSum)
+        }else{
+            continue;
+        }
+    }
+
+    return maxSum
+
+
+}
+
+console.log(getMaximumsubarray([1,5,4,2,9,8,10],3))
