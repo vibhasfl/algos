@@ -12,36 +12,29 @@
 
 function conferenceRoomRequired(schedulesArr){
 
-    schedulesArr.sort((a,b) => a[0]-b[0])
-    console.log(schedulesArr)
+    let startTimes = schedulesArr.map((a,b) => a[0]).sort((a,b) => a-b)
+    let endTimes = schedulesArr.map((a,b) => a[1]).sort((a,b) => a-b)
 
-    let lastMeetingEndingTime = 0
-    let meetingRoomRequired = 0
+    let endPointer = 0
+    let requiredConferenceRooms = 0
 
-    for(let i=0;i<schedulesArr.length;i++){
+    for(let i=0;i<startTimes.length;i++){
 
-        if(lastMeetingEndingTime<=schedulesArr[i][0]){
-            
-            meetingRoomRequired++;
-            
 
+        if(startTimes[i]<endTimes<[endPointer]){
+            requiredConferenceRooms++
         }
-        lastMeetingEndingTime = schedulesArr[i][1]
-        
+        else{
+            endPointer++
+        }
     }
-    
-    return meetingRoomRequired
+
+    return requiredConferenceRooms
+
 
 }
 
-console.log(conferenceRoomRequired([[0,30],[15,20],[5,10]]))
-console.log(conferenceRoomRequired([[0,30]]))
-console.log(conferenceRoomRequired([[1,2],[9,12],[6,10]]))
-console.log(conferenceRoomRequired([[0,5],[10,15]]))
-
-// 0 <= 1 => 1
-// 2 <= 6 => 2
-// 10 <=9 => 0
-
-0 <= 0 => 1
-5 <= 10 => 1
+// console.log(conferenceRoomRequired([[0,30],[15,20],[5,10]]))
+// console.log(conferenceRoomRequired([[0,30]]))
+// console.log(conferenceRoomRequired([[1,2],[9,12],[6,10]]))
+// console.log(conferenceRoomRequired([[0,5],[10,15]]))
