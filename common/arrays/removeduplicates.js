@@ -1,3 +1,5 @@
+// Time O(n2)
+// Space O(1)
 function removeDuplicates(arr){
 	
 	for(i=0;i<arr.length;i++){

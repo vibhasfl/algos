@@ -1,3 +1,6 @@
+// Time : O(n log n)
+// Space : O(1)
+
 function getLongestPrefix(str){
     
     str.sort()

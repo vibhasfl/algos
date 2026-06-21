@@ -10,6 +10,9 @@
 // Meeting C: [15, 20] => 0 since B meeting room can be used.
 // Ans : 2
 
+// Time : O(n log n)
+// Space : O(n)
+
 function conferenceRoomRequired(schedulesArr){
 
     let startTimes = schedulesArr.map((a,b) => a[0]).sort((a,b) => a-b)

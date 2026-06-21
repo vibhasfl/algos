@@ -7,6 +7,9 @@
 // Input: s = "rat", t = "car"
 // Output: false
 
+// Time : O(n log n)
+// Space : O(n)
+
 function checkAnagram(str1,str2){
 
     str1 = str1.split("").sort()

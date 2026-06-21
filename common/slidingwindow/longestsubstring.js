@@ -37,3 +37,4 @@ function getLongestSubstring(mystr){
 }
 
 console.log(getLongestSubstring("aaaaaaaaa"))
+console.log(getLongestSubstring("abba"))

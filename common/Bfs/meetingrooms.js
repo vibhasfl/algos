@@ -11,6 +11,9 @@
 // Output: false
 // Explanation: Since the second and third meeting overlap, a person cannot attend all the meetings.
 
+// Time : O(n log n)
+// Space : O(1)
+
 
 function canAttendAllMeeting(schedulesArr){
 

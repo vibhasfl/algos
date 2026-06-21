@@ -10,6 +10,8 @@
 
 // Why stack?
 // Time complexity?
+// Time : O(n)
+// Space : O(n)
 
 function checkParenthesis(myStr){
 
