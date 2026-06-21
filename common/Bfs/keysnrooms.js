@@ -21,6 +21,8 @@
 // Output: false
 // Explanation: We can not enter room number 2 since the only key that unlocks it is in that room.
 
+// Note : Since I am using stack this approaach used DFS
+
 function areAllRoomVisited(roomArr){
 
     let roomsVisited = new Set()
