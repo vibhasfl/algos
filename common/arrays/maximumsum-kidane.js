@@ -14,3 +14,34 @@
 // Input: arr[] = [5, 4, 1, 7, 8]
 // Output: 25
 // Explanation: The subarray [5, 4, 1, 7, 8] has the largest sum 25.
+
+
+function getKidane(intArr){
+
+   let maxSum = intArr[0]
+   let curSum = intArr[0]
+
+   for(let i=1;i<intArr.length;i++){
+
+        curSum = Math.max(intArr[i],intArr[i]+curSum)
+        maxSum = Math.max(curSum,maxSum)
+   }
+
+   return maxSum
+
+}
+
+
+console.log(getKidane([2, 3, -8, 7, -1, 2, 3]))
+console.log(getKidane([-2, -4]))
+console.log(getKidane([5, 4, 1, 7, 8]))
+console.log(getKidane([-1, 2, -1, 2]))
+// maxSum = 7
+// arr[i] = 7
+
+// maxSum = 7
+// arr[i] = -1
+
+// maxSum = 5+4+1
+// arr[i] = 1
+
