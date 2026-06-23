@@ -27,25 +27,35 @@
 // - [4,4,4] which does not meet the requirements because the element 4 is repeated.
 // We return 0 because no subarrays meet the conditions.
 
+// Time : O(n+k)
+// space : O(k) (k sliced array)
+
 function getMaximumsubarray(intArr,count){
 
-    let maxSum=0
-    for(i=0;i<intArr.length-2;i++){
-        let a = intArr[i]
-        let b = intArr[i+1]
-        let c = intArr[i+2]
+    if (count > intArr.length) return 0;
 
-        if(a!=b && b!=c){
-            sum = a+b+c 
-            maxSum= Math.max(sum,maxSum)
-        }else{
-            continue;
+    let maxSum = 0
+    
+
+    for(let i=0;i<intArr.length;i++){
+        
+        let arrSubset = intArr.slice(i,i+count)
+        
+        let arrSet = new Set(arrSubset)
+
+        if(arrSet.size === count){
+            let curSum = arrSubset.reduce((a,b) => a+b)
+            maxSum = Math.max(curSum,maxSum)
         }
     }
 
     return maxSum
 
-
 }
 
 console.log(getMaximumsubarray([1,5,4,2,9,8,10],3))
+
+
+3
+4
+5
