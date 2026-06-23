@@ -1,0 +1,5 @@
+getLongestSubstring: logic is incorrect (resets window naively). Use canonical sliding-window with map for O(n). Patch below. Use set or map
+
+frequency.js — getFrequency: current code is wrong (calls intMap.set with single arg and returns unique count). I replaced with correct frequency counting and summing occurrences of elements that have max frequency. Patch below.
+
+bestTimetoBuyAndSell: bug — minPrice initialized to 7 instead of first price. Also extra logs. Patch below.
