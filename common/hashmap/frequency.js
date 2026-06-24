@@ -18,15 +18,30 @@
 // So the number of elements in the array with maximum frequency is 5.
 
 
-function getFrequency(intArr){
+function getFrequency(nums){
 
-    let intMap = new Map()
+   let frequencyMap = new Map()
+    let maxFrequency = 0
 
-    for(let i=0;i<intArr.length;i++){
-        intMap.set(intArr[i])
+
+    for(let i=0;i<nums.length;i++){
+
+        const frequency = frequencyMap.get(nums[i]) || 0
+
+        if(frequencyMap.get(nums[i])!= undefined){
+            frequencyMap.set(nums[i],frequency+1)
+
+        }else{
+            frequencyMap.set(nums[i],1)
+        }
+
     }
 
-    return intMap.size
+    maxFrequency = Math.max(...frequencyMap.values())
+
+    return frequencyMap.values().reduce((total,freq) => {
+        return freq==maxFrequency? total+freq : total
+    },0)
 
 }
 
