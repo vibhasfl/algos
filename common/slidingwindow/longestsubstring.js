@@ -36,5 +36,39 @@ function getLongestSubstring(mystr){
     return Math.max(maxLength,substringLength)
 }
 
-console.log(getLongestSubstring("aaaaaaaaa"))
-console.log(getLongestSubstring("abba"))
+// console.log(getLongestSubstring("aaaaaaaaa")) // 1
+// console.log(getLongestSubstring("abba")) // 2
+// console.log(getLongestSubstring("dvdf")) // 3
+
+function getLongestSubstringv2(mystr){
+
+    let hashMap = new Map()
+    let start = 0
+    let maxStringLength = 0
+
+    for(let i=0;i<mystr.length;i++){
+
+            let character = mystr[i]
+
+            if(!hashMap.get(character)){
+                hashMap.set(character,i)
+                maxStringLength++
+            }
+            else{
+                start = hashMap.get(character)+1
+                maxStringLength = Math.max(maxStringLength - start,maxStringLength)
+                if(hashMap.get(character)>start){
+                hashMap.set(character,i)
+                }
+            }
+    }
+
+    return maxStringLength
+}
+
+
+console.log(getLongestSubstringv2("aaaaaaaaa")) // 1
+console.log(getLongestSubstringv2("abba")) // 2
+console.log(getLongestSubstringv2("dvdf")) // 3
+console.log(getLongestSubstringv2("abcabcbb")) // 3
+console.log(getLongestSubstringv2("cadbzabcd")) // 5
