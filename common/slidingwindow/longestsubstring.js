@@ -10,65 +10,32 @@
 // Output: 1
 // Explanation: The answer is "b", with the length of 1.
 
-function getLongestSubstring(mystr){
+function getLongestSubstring(mystr) {
+  let myMap = new Map()
+  let start = 0
+  let maxStringLength = 0
 
-    let substringLength = 0
-    let maxLength = 0
-    let str = ""
+  for (let i = 0; i < mystr.length; i++) {
+    let element = mystr[i]
 
-    for(let i=0;i<mystr.length;i++){
-        if(str.includes(mystr[i])){
-         maxLength = Math.max(substringLength,maxLength)  
-         console.log("maxLength",maxLength)
-         substringLength=1 
-         str=""
-        }
-        else
-        {
-            substringLength++
-           
-        }
+    if (myMap.has(element)) {
+      let index = myMap.get(element)
+      myMap.set(element, i)
 
-         str+=mystr[i]
-        console.log("str",str)
+      if (start <= index) {
+        start = index + 1
+      }
+    } else {
+      myMap.set(element, i)
     }
+    maxStringLength = Math.max(maxStringLength, i - start + 1)
+  }
 
-    return Math.max(maxLength,substringLength)
+  return maxStringLength
 }
 
-// console.log(getLongestSubstring("aaaaaaaaa")) // 1
-// console.log(getLongestSubstring("abba")) // 2
-// console.log(getLongestSubstring("dvdf")) // 3
-
-function getLongestSubstringv2(mystr){
-
-    let hashMap = new Map()
-    let start = 0
-    let maxStringLength = 0
-
-    for(let i=0;i<mystr.length;i++){
-
-            let character = mystr[i]
-
-            if(!hashMap.get(character)){
-                hashMap.set(character,i)
-                maxStringLength++
-            }
-            else{
-                start = hashMap.get(character)+1
-                maxStringLength = Math.max(maxStringLength - start,maxStringLength)
-                if(hashMap.get(character)>start){
-                hashMap.set(character,i)
-                }
-            }
-    }
-
-    return maxStringLength
-}
-
-
-console.log(getLongestSubstringv2("aaaaaaaaa")) // 1
-console.log(getLongestSubstringv2("abba")) // 2
-console.log(getLongestSubstringv2("dvdf")) // 3
-console.log(getLongestSubstringv2("abcabcbb")) // 3
-console.log(getLongestSubstringv2("cadbzabcd")) // 5
+console.log(getLongestSubstring("aaaaaaaaa")) // 1
+console.log(getLongestSubstring("abba")) // 2
+console.log(getLongestSubstring("dvdf")) // 3
+console.log(getLongestSubstring("abcabcbb")) // 3
+console.log(getLongestSubstring("cadbzabcd")) // 5
